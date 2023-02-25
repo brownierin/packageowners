@@ -8,15 +8,20 @@ from pathlib import Path
 path = Path(os.getcwd())
 
 # determine how many package managers are used
-all_manifest_files = pm.find_default_files(source_path=path)
+all_manifest_files = pm.find_default_files(search_path=path)
 
 # read the list of packages from the package file
-parsers.call(all_manifest_files)
+packages = parsers.call(all_manifest_files)
+import json
+print("Here's an example of parsing poetry manifest files")
+print(json.dumps(packages,indent=4))
 
 # find where the package is imported
 
 # parse codeowners
 codeowners = codeowners.parse_codeowners()
+print("Here's an example of codeowners parsing")
+print(codeowners)
 
 # determine if i should expand paths with splats from the codeowners file
 
