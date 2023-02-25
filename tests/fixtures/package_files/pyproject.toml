@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "example"
+version = "0.0.1"
+description = "example"
+authors = ["Erin Browning <erinlbrowning@gmail.com>"]
+maintainers = ["Erin Browning <erinlbrowning@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+pyproject-parser = "^0.7.0"
+
+[tool.poetry.group.dev.dependencies]
+pytest = "*"
+
+[tool.poetry.group.typing.dependencies]
+mypy = ">=1.0"
