@@ -6,7 +6,7 @@ defaults = {"python": {"poetry": ["pyproject.toml"]}, "go": {"go_mod": ["go.mod"
 
 def find_files(filename: str, search_path: Path):
     result = []
-    truncated_dir = len(search_path.as_posix())
+    truncated_dir = len(search_path.as_posix()) + 1
     for root, dir, files in os.walk(search_path):
         if filename in files:
             result.append(os.path.join(root[truncated_dir:], filename))

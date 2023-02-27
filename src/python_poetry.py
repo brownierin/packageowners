@@ -8,8 +8,8 @@ from src.exceptions import *
 
 
 def read(path: Path) -> PyProject:
-    path = Path(os.getcwd() / path)
-    if path.exists():
+    full_path = Path.cwd() / path
+    if full_path.exists():
         return PyProject.load(path)
     else:
         raise PackageFileDoesNotExistException(path)
