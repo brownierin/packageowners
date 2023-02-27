@@ -1,16 +1,15 @@
 import os
 from pathlib import Path
 
-defaults = {
-    "python": {"poetry": ["pyproject.toml"]},
-}
+defaults = {"python": {"poetry": ["pyproject.toml"]}, "go": {"go_mod": ["go.mod"]}}
 
 
 def find_files(filename: str, search_path: Path):
     result = []
+    truncated_dir = len(search_path.as_posix())
     for root, dir, files in os.walk(search_path):
         if filename in files:
-            result.append(os.path.join(root, filename))
+            result.append(os.path.join(root[truncated_dir:], filename))
     return result
 
 

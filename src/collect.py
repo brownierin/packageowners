@@ -13,8 +13,9 @@ all_manifest_files = pm.find_default_files(search_path=path)
 # read the list of packages from the package file
 packages = parsers.call(all_manifest_files)
 import json
+
 print("Here's an example of parsing poetry manifest files")
-print(json.dumps(packages,indent=4))
+print(json.dumps(packages, indent=4))
 
 # find where the package is imported
 

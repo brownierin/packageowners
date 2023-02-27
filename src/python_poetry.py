@@ -8,6 +8,7 @@ from src.exceptions import *
 
 
 def read(path: Path) -> PyProject:
+    path = Path(os.getcwd() / path)
     if path.exists():
         return PyProject.load(path)
     else:
